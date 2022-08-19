@@ -1,0 +1,2 @@
+2022-08-19_16-59-07 [http-nio-8300-exec-2] ERROR c.p.p.e.GlobalExceptionHandler - handled by handleFeignStatusException
+2022-08-19_16-59-07 [http-nio-8300-exec-2] ERROR c.p.p.e.GlobalExceptionHandler - [401] during [POST] to [http://localhost:8100/auth/api/v1/authenticateuser] [AuthClient#createAuthenticationToken(JwtRequest)]: []

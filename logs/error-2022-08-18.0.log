@@ -1,0 +1,22 @@
+2022-08-18_23-40-12 [restartedMain] ERROR o.s.b.d.LoggingFailureAnalysisReporter - 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The bean 'Authorization-Microservice.FeignClientSpecification' could not be registered. A bean with that name has already been defined and overriding is disabled.
+
+Action:
+
+Consider renaming one of the beans or enabling overriding by setting spring.main.allow-bean-definition-overriding=true
+
+2022-08-18_23-41-29 [http-nio-8300-exec-5] ERROR c.p.p.e.GlobalExceptionHandler - handled by handleFeignStatusException
+2022-08-18_23-41-29 [http-nio-8300-exec-5] ERROR c.p.p.e.GlobalExceptionHandler - [401] during [POST] to [http://localhost:8100/auth/api/v1/authenticateuser] [AuthClient#createAuthenticationToken(JwtRequest)]: []
+2022-08-18_23-41-29 [http-nio-8300-exec-6] ERROR c.p.p.e.GlobalExceptionHandler - handled by handleFeignStatusException
+2022-08-18_23-41-29 [http-nio-8300-exec-6] ERROR c.p.p.e.GlobalExceptionHandler - [401] during [POST] to [http://localhost:8100/auth/api/v1/authenticateuser] [AuthClient#createAuthenticationToken(JwtRequest)]: []
+2022-08-18_23-50-00 [main] ERROR c.p.p.e.GlobalExceptionHandler - null
+2022-08-18_23-50-00 [main] ERROR c.p.p.e.GlobalExceptionHandler - Required request header 'Authorization' for method parameter type String is not present
+2022-08-18_23-50-00 [main] ERROR c.p.p.c.ProcessPensionController - Invalid Token
+2022-08-18_23-50-00 [main] ERROR c.p.p.e.GlobalExceptionHandler - Not allowed, Please pass a valid token
