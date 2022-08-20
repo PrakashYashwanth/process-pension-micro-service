@@ -1,8 +1,5 @@
 package com.pension.process.restClients;
 
-import java.io.IOException;
-import java.util.List;
-
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +16,5 @@ public interface PensionerDetailClient {
 	public PensionerDetail getPensionerDetailByAadhaar(
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader,
 			@PathVariable long aadharNumber) throws AuthorizationException, AadharNumberNotFound;
-	
-	@GetMapping("/findAllPensionerDetails")
-	public List<PensionerDetail> getAllPensioner(
-			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader) throws AuthorizationException, NumberFormatException, IOException;
 
 }

@@ -23,6 +23,7 @@ import com.pension.process.model.Bank;
 import com.pension.process.model.PensionDetail;
 import com.pension.process.model.PensionerDetail;
 import com.pension.process.model.ProcessPensionInput;
+import com.pension.process.repository.PensionDetailsRepository;
 import com.pension.process.restClients.AuthClient;
 import com.pension.process.restClients.PensionerDetailClient;
 
@@ -43,6 +44,9 @@ class ProcessPensionServiceTest {
 
 	@Autowired
 	private MockMvc mockMvc;
+	
+	@MockBean
+	private PensionDetailsRepository pensionrepo;
 
 	@Test
 	void testPensionerDetailClientNotNull() {
@@ -60,16 +64,26 @@ class ProcessPensionServiceTest {
 	}
 
 	@Test
-	 void testGetPensionValidAadhar() throws Exception {
+	 void testGetPensionValidAadharWithTypeSelf() throws Exception {
 		String token = "@token";
 		ProcessPensionInput pensionerInput = new ProcessPensionInput(420559429029l);
 		PensionDetail pensionDetail = new PensionDetail(24400, 550);
 		Bank bank = new Bank("SBI", "private","4059586623");
 		PensionerDetail pensionerDetail = new PensionerDetail(420559429029l, "Nabeel", LocalDate.of(1999, 12, 03),
 				"BSDPS1495K", 29000, 1200, "self", bank);
-		Mockito.when(pensionerDetailClient.getPensionerDetailByAadhaar(token, 420559429029l))
-				.thenReturn(pensionerDetail);
-		
+		Mockito.when(pensionerDetailClient.getPensionerDetailByAadhaar(token, 420559429029l)).thenReturn(pensionerDetail);
+		assertEquals(processPensionServiceImpl.processPension(token,pensionerInput),pensionDetail);
+	}
+	
+	@Test
+	 void testGetPensionValidAadharWithTypeFamily() throws Exception {
+		String token = "@token";
+		ProcessPensionInput pensionerInput = new ProcessPensionInput(420559429029l);
+		PensionDetail pensionDetail = new PensionDetail(15700, 500);
+		Bank bank = new Bank("SBI", "public","4059586623");
+		PensionerDetail pensionerDetail = new PensionerDetail(420559429029l, "Nabeel", LocalDate.of(1999, 12, 03),
+				"BSDPS1495K", 29000, 1200, "family", bank);
+		Mockito.when(pensionerDetailClient.getPensionerDetailByAadhaar(token, 420559429029l)).thenReturn(pensionerDetail);
 		assertEquals(processPensionServiceImpl.processPension(token,pensionerInput),pensionDetail);
 	}
 
@@ -83,5 +97,5 @@ class ProcessPensionServiceTest {
 				bank);
 		assertNull(pensionerDetailClient.getPensionerDetailByAadhaar(token, pensionerInput.getAadharNumber()));
 	}
-
+	
 }

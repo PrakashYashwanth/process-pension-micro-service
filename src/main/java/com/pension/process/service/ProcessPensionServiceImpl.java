@@ -3,12 +3,14 @@ package com.pension.process.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.pension.process.entity.PensionDetailsEntity;
 import com.pension.process.exception.AadharNumberNotFound;
 import com.pension.process.exception.AuthorizationException;
 import com.pension.process.exception.PensionerDetailException;
 import com.pension.process.model.PensionDetail;
 import com.pension.process.model.PensionerDetail;
 import com.pension.process.model.ProcessPensionInput;
+import com.pension.process.repository.PensionDetailsRepository;
 import com.pension.process.restClients.PensionerDetailClient;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +21,11 @@ public class ProcessPensionServiceImpl implements ProcessPensionService {
 
 	@Autowired
 	private PensionerDetailClient pensionerDetailClient;
+	
+	private PensionDetailsRepository pensionrepo;
+    public ProcessPensionServiceImpl(PensionDetailsRepository pensionrepo){
+        this.pensionrepo=pensionrepo;
+    }
 	
 	@Override
 	public PensionDetail processPension(String token, ProcessPensionInput processPensionInput ) throws PensionerDetailException, AuthorizationException, AadharNumberNotFound	
@@ -43,6 +50,8 @@ public class ProcessPensionServiceImpl implements ProcessPensionService {
 		PensionDetail pensionDetail = new PensionDetail();
 		pensionDetail.setBankServiceCharge(calculateBankCharge(pensionerDetail.getBank().getBankType()));
 		pensionDetail.setPensionAmount(pensionAmount);
+		PensionDetailsEntity pensionDetails = new PensionDetailsEntity(pensionerDetail.getName(),pensionerDetail.getDateOfBirth(),pensionerDetail.getPan(),pensionerDetail.getPensionType(),pensionDetail.getPensionAmount(),pensionDetail.getBankServiceCharge());
+		pensionrepo.save(pensionDetails);
 		return pensionDetail;
 		
 	}
@@ -53,8 +62,7 @@ public class ProcessPensionServiceImpl implements ProcessPensionService {
 		{
 			pensionAmount = 0.8 * salary + allowances;
 		}
-		else if(pensionType.equalsIgnoreCase("family"))
-		{
+		else {
 			pensionAmount = 0.5 * salary + allowances;
 		}
 		return pensionAmount;	
