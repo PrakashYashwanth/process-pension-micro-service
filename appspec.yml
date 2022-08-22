@@ -1,0 +1,10 @@
+version: 1.0
+Resources:
+  - TargetService:
+      Type: AWS::ECS::Service
+      Properties:
+        TaskDefinition: "arn:aws:ecs:ap-south-1:860061945305:task-definition/yash-ppm-process-pension-task:1"
+        LoadBalancerInfo:
+          ContainerName: "process-pension-micro-service"
+          ContainerPort: "8300"
+        PlatformVersion: "LATEST"

@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import com.pension.process.model.TokenValidationResponse;
 
-@FeignClient(name = "Authorization-Microservice", url = "${url.app.auth:http://localhost:8100/auth/api/v1}")
+@FeignClient(name = "Authorization-Microservice", url = "${AUTHORIZATION_MICRO_SERVICE_URI:http://localhost:8100}")
 public interface AuthClient {
 
-	@PostMapping("/authorizeuser")
+	@PostMapping("/auth/api/v1/authorizeuser")
 	public TokenValidationResponse authorizeTheRequest(@RequestHeader(value = "Authorization", required = true) String requestTokenHeader);
 }

@@ -9,10 +9,10 @@ import com.pension.process.exception.AadharNumberNotFound;
 import com.pension.process.exception.AuthorizationException;
 import com.pension.process.model.PensionerDetail;
 
-@FeignClient(name ="PensionerDetail-Microservice",url = "${url.app.details:http://localhost:8200/pensioner/api/v1}")
+@FeignClient(name ="PensionerDetail-Microservice",url = "${PENSIONER_DETAIL_MICRO_SERVICE_URI:http://localhost:8200}")
 public interface PensionerDetailClient {
 	
-	@GetMapping("/findPensionerDetailByAadhaar/{aadharNumber}")
+	@GetMapping("/pensioner/api/v1/findPensionerDetailByAadhaar/{aadharNumber}")
 	public PensionerDetail getPensionerDetailByAadhaar(
 			@RequestHeader(value = "Authorization", required = true) String requestTokenHeader,
 			@PathVariable long aadharNumber) throws AuthorizationException, AadharNumberNotFound;
