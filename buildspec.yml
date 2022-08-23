@@ -16,10 +16,9 @@ phases:
       - echo Build started on `date`
       - echo $IMAGE_NAME
       - mvn clean package -Ddockerfile.skip
-      - docker build --tag $IMAGE_URI .
+      - docker build -t $IMAGE_NAME .
   post_build:
     commands:
-      - printenv
       - echo Build completed on `date`
       - echo $(docker images)
       - docker tag $IMAGE_NAME $IMAGE_URI
