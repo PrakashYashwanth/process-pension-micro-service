@@ -1,0 +1,30 @@
+2022-08-24_16-43-02 [restartedMain] INFO  c.p.p.ProcessPensionMicroServiceApplication - Starting ProcessPensionMicroServiceApplication using Java 17.0.3 on DESKTOP-KE8A2D8 with PID 16216 (C:\Users\msspy\Desktop\Git Hub PPM\process-pension-micro-service\target\classes started by msspy in C:\Users\msspy\Desktop\Git Hub PPM\process-pension-micro-service)
+2022-08-24_16-43-02 [restartedMain] INFO  c.p.p.ProcessPensionMicroServiceApplication - No active profile set, falling back to 1 default profile: "default"
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 37 ms. Found 1 JPA repository interfaces.
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a3e0be86-1a99-3d5b-b1f0-313fb20b28d2
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8300 (http)
+2022-08-24_16-43-02 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8300"]
+2022-08-24_16-43-02 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2022-08-24_16-43-02 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-08-24_16-43-02 [restartedMain] INFO  o.a.c.c.C.[.[localhost].[/process] - Initializing Spring embedded WebApplicationContext
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1938 ms
+2022-08-24_16-43-02 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-08-24_16-43-02 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2'. Database available at 'jdbc:h2:mem:testdb'
+2022-08-24_16-43-02 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-08-24_16-43-02 [restartedMain] INFO  o.h.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-08-24_16-43-02 [restartedMain] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-08-24_16-43-02 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/manage'
+2022-08-24_16-43-02 [restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8300"]
+2022-08-24_16-43-02 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8300 (http) with context path '/process'
+2022-08-24_16-43-02 [restartedMain] INFO  c.p.p.ProcessPensionMicroServiceApplication - Started ProcessPensionMicroServiceApplication in 5.376 seconds (JVM running for 6.376)
+2022-08-24_16-43-02 [http-nio-8300-exec-4] INFO  o.a.c.c.C.[.[localhost].[/process] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-08-24_16-43-02 [http-nio-8300-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-08-24_16-43-02 [http-nio-8300-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-08-24_16-43-02 [http-nio-8300-exec-6] INFO  c.p.p.c.ProcessPensionController - Token valid :true
+2022-08-24_16-43-02 [http-nio-8300-exec-9] INFO  c.p.p.c.ProcessPensionController - Token valid :true
